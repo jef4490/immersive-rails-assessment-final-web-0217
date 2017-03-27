@@ -13,10 +13,24 @@ class AppearancesController < ApplicationController
     end
   end
 
+  def edit
+    @appearance = Appearance.find(params[:id])
+  end
+
+  def update
+    @appearance = Appearance.find(params[:id])
+    @appearance.update(params.require(:appearance).permit(:rating))
+    if @appearance.valid?
+      redirect_to @appearance.episode
+    else
+      render :edit
+    end
+  end
+
   private
 
   def appearance_params
-    params.require(:appearance).permit(:guest_id, :episode_id, :rating)
+    params.require(:appearance).permit(:guest_id, :episode_id, :rating, :user_id)
   end
 
 end

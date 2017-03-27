@@ -6,6 +6,15 @@
 
 <ul>
   <% @episode.guests.each do |guest| %>
-    <li><%= link_to guest.name, guest %></li>
+    <% app = Appearance.where(guest_id: guest.id, episode_id: @episode.id).first %>
+    <li>
+      <%= link_to guest.name, guest %> <br>
+      Producer: <%= app.user.username %> <br>
+      Rating: <%= app.rating %>
+      <% if logged_in? %>
+        <%= link_to "Edit Rating", edit_appearance_path(app) %>
+      <% end %>
+    </li>
+    <br>
   <% end %>
 </ul>
