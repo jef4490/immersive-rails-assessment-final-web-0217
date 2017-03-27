@@ -1,4 +1,14 @@
 <h1><%= @guest.name %></h1>
 
-<h3><%= @guest.occupation %></h3>
+<h3>Occupation: <%= @guest.occupation %></h3>
 
+<h4>Episodes: </h4>
+<% if @guest.episodes.first %>
+  <ul>
+    <% @guest.episodes.each do |episode| %>
+     <li><%= link_to episode.date , episode %></li>
+    <% end %>
+  </ul>
+<% else %>
+  None yet, add an <%= link_to "appearance!", new_appearance_path %>
+<% end %>

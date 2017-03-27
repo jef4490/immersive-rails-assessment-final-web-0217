@@ -1,3 +1,12 @@
-<h1>Colbert Stuffs</h1>
+<h1>Colbert HQ</h1>
 
 Welcome to Mr. Colbert's Webspace. I'll be your guide.
+<br>
+Here are some things you may wish to see!
+<ul>
+  <li><%= link_to "Episodes", episodes_path %></li>
+  <li><%= link_to "Guests", guests_path %></li>
+  <li><%= link_to "New Appearance", new_appearance_path %></li>
+</ul>
+<br>
+<h4>Please be advised that you can only edit the ratings of reviews for which you are the active producer. Be sure to <%= link_to "log in.", login_path %></h4>
