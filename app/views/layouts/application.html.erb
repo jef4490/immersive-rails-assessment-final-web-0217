@@ -9,11 +9,15 @@
   </head>
 
   <body>
+    <%= link_to "Home", root_path %>
+    <%= link_to "Guests", guests_path %>
+    <%= link_to "Episode", episodes_path %>
     <% if !logged_in? %>
       <%= link_to "Log In", login_path %>
     <% else %>
-      <%= "Hello, #{current_user.username}!" %>
       <%= link_to "Log Out", logout_path, method: "delete" %>
+      <br>
+      <%= "Hello, #{current_user.username}!" %>
     <% end %>
     <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
