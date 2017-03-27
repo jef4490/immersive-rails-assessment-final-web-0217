@@ -11,7 +11,7 @@
       <%= link_to guest.name, guest %> <br>
       Producer: <%= app.user.username %> <br>
       Rating: <%= app.rating %>
-      <% if logged_in? %>
+      <% if logged_in? && current_user%>
         <%= link_to "Edit Rating", edit_appearance_path(app) %>
       <% end %>
     </li>
